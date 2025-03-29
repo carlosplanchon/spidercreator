@@ -169,3 +169,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ignore recordings folder:
+recordings/
+
+# Ignore results folder:
+results/

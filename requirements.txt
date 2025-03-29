@@ -1,0 +1,17 @@
+# browser-use-recorder:
+browser-use-recorder
+langchain
+langchain_openai
+pandas
+sounddevice
+
+# record_activity:
+pyobjtojson
+
+# SpiderCreator:
+attrs
+attrs_strict
+pyhtml2md
+validators
+tldextract
+betterhtmlchunking
