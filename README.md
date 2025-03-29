@@ -1,6 +1,6 @@
 ![Spider Creator Banner](assets/spidercreator_banner.png)
 
-<h1 align="center">Generate Scrapy Spiders with AI.</h1>
+<h1 align="center">Generate Playwright Spiders with AI.</h1>
 
 [![GitHub stars](https://img.shields.io/github/stars/carlosplanchon/spidercreator?style=social)](https://github.com/carlosplanchon/spidercreator/stargazers)
 [![Discord](https://img.shields.io/discord/1339895894434123777?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://discord.gg/EgXeu9qnrR)
@@ -8,7 +8,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/carlosplanchon?style=social)](https://x.com/carlosplanchon)
 
 <p align="center"><strong>Automated web scraping spider generation using Browser Use and LLMs.<br>
-Generate scrapy spiders with minimal technical expertise.</strong></p>
+Generate Playwright spiders with minimal technical expertise.</strong></p>
 
 <h1 align="center">THIS LIBRARY IS HIGHLY EXPERIMENTAL</h1>
 
@@ -44,7 +44,7 @@ export GOOGLE_API_KEY=...
 export OPENAI_API_KEY=...
 ```
 
-Generate your Scrapy spider:
+Generate your Playwright spider:
 
 ```python
 from spidercreator import create_spider
