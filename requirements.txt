@@ -22,5 +22,5 @@ fastapi
 uvicorn
 
 # Miscelaneous:
-pydantic
+# pydantic
 prettyprinter

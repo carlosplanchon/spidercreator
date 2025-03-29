@@ -7,6 +7,8 @@ from exec_funcs import run_recorder_with_pty
 
 from exec_funcs import run_spider_creator_with_pty
 
+from pathlib import Path
+
 
 def create_spider(
     browser_use_task: str,
@@ -19,6 +21,8 @@ def create_spider(
 
     # Create a sub-folder per session
     folder_name = f"recordings/{task_id}"
+
+    Path(folder_name).mkdir(parents=True, exist_ok=True)
 
     # Start the API in a context manager
     with RecordingAPIContext(

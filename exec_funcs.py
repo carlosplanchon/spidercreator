@@ -63,7 +63,11 @@ def run_recording_api_with_pty(port=8000, folder_name="recordings", on_spawn=Non
         print("Process finished.")
 
 
-def start_recording_api_thread(port=8000, folder_name="recordings", on_spawn=None) -> threading.Thread:
+def start_recording_api_thread(
+    port=8000,
+    folder_name="recordings",
+    on_spawn=None
+        ) -> threading.Thread:
     """
     Starts the run_recording_api_with_pty function on a separate daemon thread
     and returns the Thread object.
