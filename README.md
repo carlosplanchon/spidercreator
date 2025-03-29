@@ -37,10 +37,9 @@ Install Playwright:
 playwright install chromium
 ```
 
-Export your Google Gemini API KEY and your OpenAI API KEY:
+Export your OpenAI API KEY:
 
 ```bash
-export GOOGLE_API_KEY=...
 export OPENAI_API_KEY=...
 ```
 
