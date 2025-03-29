@@ -15,3 +15,12 @@ pyhtml2md
 validators
 tldextract
 betterhtmlchunking
+ptyprocess
+
+# Receive API data:
+fastapi
+uvicorn
+
+# Miscelaneous:
+pydantic
+prettyprinter
