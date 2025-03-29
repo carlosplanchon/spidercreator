@@ -4,7 +4,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/carlosplanchon/spidercreator?style=social)](https://github.com/carlosplanchon/spidercreator/stargazers)
 [![Discord](https://img.shields.io/discord/1339895894434123777?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://discord.gg/EgXeu9qnrR)
-[![Cloud](https://img.shields.io/badge/Cloud-☁️-blue)](https://services.carlosplanchon.com/spidercreator)
+[![Cloud](https://img.shields.io/badge/Cloud-☁️-blue)](https://services.carlosplanchon.com/spidercreator/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/carlosplanchon?style=social)](https://x.com/carlosplanchon)
 
 <p align="center"><strong>Automated web scraping spider generation using Browser Use and LLMs.<br>
@@ -146,7 +146,7 @@ Find practical usage examples in the [examples folder](examples/).
 
 ## Hosted version
 💡 <strong>Looking for a tested and reliable version? We host a specialized build focused on extracting price listing XPaths from homepages - with an 80% success rate.</strong>  
-👉 **[Try the custom-build hosted version ☁︎](https://services.carlosplanchon.com/spidercreator)**
+👉 **[Try the custom-build hosted version ☁︎](https://services.carlosplanchon.com/spidercreator/)**
 
 ![SpiderCreator Hosted Version](assets/spidercreator_hosted.png)
 
