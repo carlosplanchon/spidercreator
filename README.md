@@ -22,7 +22,7 @@ We don't have benchmarks yet. However, in internal tests using GPT, initial figu
 
 ## 🚀 Quick Start
 
-#### We recommend using Python 3.11.
+#### We recommend using Python 3.13.
 
 ⚠️ This package is not on PyPI yet. To get started, clone the repo and run your code from its main folder:
   
