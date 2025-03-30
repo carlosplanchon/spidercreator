@@ -59,7 +59,7 @@ browser_use_task = PRODUCT_LISTING_TASK_PROMPT.format(url=url)
 
 # This function generates a spider
 # and saves it to results/<task_id>/spider_code.py
-task_id: str = create_spider(url=url, browser_use_task=browser_use_task)
+task_id: str = create_spider(browser_use_task=browser_use_task)
 ```
 
 Result:
@@ -155,10 +155,8 @@ Find practical usage examples in the [examples folder](examples/).
 ### Main Workflow
 
 The user provides a prompt describing the desired task or data.
-1. The system opens a browser and performs the task based on the prompt.
-2. The browser activity is recorded during the session.
-3. The recorded activity is passed to the Spider Creator.
-4. The Spider Creator generates a web scraper (spider) from the recorded actions.
+1. The system opens a browser and performs the task based on the prompt. The browser activity is recorded.
+2. The Spider Creator generates a web scraper (spider) from the recorded actions.
 
 ### Spider Creator Algorithm
 
