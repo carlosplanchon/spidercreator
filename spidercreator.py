@@ -183,7 +183,7 @@ def main():
 
         # Print quick summary
         for key, chunk in CAND_SPIDER_CREATION_RESULTS.items():
-            if chunk:
+            if chunk not in [False, None]:
                 print(f"\n{'-' * 50} {key}")
                 print(f"Have desired content?: {chunk.result}\n")
                 if chunk.spider_code is not None:

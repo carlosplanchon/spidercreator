@@ -65,6 +65,10 @@ def get_html_classification_result_struct(
             ...,
             description="Explanation"
         )
+
+        # The field description includes extracted content on rec
+        # to orient the generated code towards "extracted_content_on_rec"
+        # which will be taken as a target.
         spider_code: Optional[str] = Field(
             ...,
             description=SCRAPY_CREATION_PROMPT.format(
@@ -102,6 +106,8 @@ def classify_roi_html_create_cand_spider(
             dom_repr.render_system.get_roi_html_render_with_pos_xpath(
                 roi_idx=idx
             )
+
+        # -> ROI Text render:
         roi_text_render: str =\
             dom_repr.render_system.get_roi_text_render_with_pos_xpath(
                 roi_idx=idx
