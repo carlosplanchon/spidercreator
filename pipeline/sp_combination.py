@@ -24,6 +24,7 @@ SPIDER_COMBINATION_PROMPT_INSTRUCTIONS: str = """
 > - All script functionality must execute when the `if __name__ == "__main__":` condition is met, as it will be periodically scheduled for repeated runs on a cloud infrastructure.
 > - Clearly separate data fetching, parsing logic, and execution procedures.
 > - Provide helpful, clear, and concise logging or print statements for easy monitoring.
+> - Keep it simple.
 >
 
 Please combine the spiders into a unified script, but use Playwright.
