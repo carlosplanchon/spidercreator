@@ -24,4 +24,5 @@ o1_llm = init_chat_model(
 gemini_2_5_llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-pro-exp-03-25",
     temperature=0,
+    max_retries=5
 )

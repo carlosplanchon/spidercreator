@@ -18,13 +18,17 @@ def execute_cand_spiders(
         if chunk is not False:
             print(f"{'-' * 50}", key)
             print(f"ACTUAL EXEC INSTANCE: {actual_exec_instance}")
-            if chunk is not None and chunk.spider_code is not None:
+            if chunk is not None and chunk.spider_code not in [None, ""]:
                 print("--- EXPLANATION ---")
                 print(chunk.explanation)
+
+                print("--- SPIDER CODE ---")
                 print(chunk.spider_code)
 
                 print("--- PORT OFFSET ---")
                 print(port_offset)
+
+                # input()
 
                 # Recordings data is used in
                 # map_url_to_exec_context.

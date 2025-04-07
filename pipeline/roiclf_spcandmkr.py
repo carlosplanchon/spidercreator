@@ -5,7 +5,8 @@ from pydantic import Field
 
 from langchain_core.messages import HumanMessage
 
-from shared import o1_llm
+# from shared import o1_llm
+from shared import gemini_2_5_llm
 
 from typing import Optional
 
@@ -16,6 +17,7 @@ prettyprinter.install_extras()
 
 # NOTE: Maybe the criteria in the prompt can be improved.
 
+# Used on HTMLClassificationResult.spider_code:
 SCRAPY_CREATION_PROMPT: str = """
 Write a Scrapy Spider like the one that {extracted_content_on_rec}
 
@@ -65,6 +67,10 @@ def get_html_classification_result_struct(
             ...,
             description="Explanation"
         )
+
+        # The field description includes extracted content on rec
+        # to orient the generated code towards "extracted_content_on_rec"
+        # which will be taken as a target.
         spider_code: Optional[str] = Field(
             ...,
             description=SCRAPY_CREATION_PROMPT.format(
@@ -75,18 +81,76 @@ def get_html_classification_result_struct(
     return HTMLClassificationResult
 
 
+import random
+import time
+from functools import wraps
+
+
+def retry_with_exponential_backoff(
+    initial_delay: float = 1,
+    exponential_base: float = 2,
+    jitter: bool = True,
+    max_retries: int = 6
+        ):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            num_retries = 0
+            delay = initial_delay
+
+            while True:
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    num_retries += 1
+                    if num_retries > max_retries:
+                        raise Exception(
+                            f"Máximo de tentativas ({max_retries}) atingido: {str(e)}")
+
+                    delay *= exponential_base * (1 + jitter * random.random())
+                    time.sleep(delay)
+
+        return wrapper
+    return decorator
+
+
+@retry_with_exponential_backoff()
+def call_structured_roi_classifier_llm(
+    structured_roi_classifier_llm,
+    roi_html_render: str,
+    planning: str
+        ):
+
+    html_classification_result = structured_roi_classifier_llm.invoke(
+        [
+            HumanMessage(
+                content=ROI_CLASSIFICATION_PROMPT.format(
+                    website_html=roi_html_render,
+                    planning=planning
+                )
+            )
+        ]
+    )
+
+    return html_classification_result
+
+
 def classify_roi_html_create_cand_spider(
     dom_repr,
     extracted_content_on_rec: str,
     planning: str,
     max_exec_amt: int = 75
         ):
-
     HTMLClassificationResult = get_html_classification_result_struct(
         extracted_content_on_rec=extracted_content_on_rec
     )
 
+    """
     structured_roi_classifier_llm = o1_llm.with_structured_output(
+        HTMLClassificationResult
+    )
+    """
+    structured_roi_classifier_llm = gemini_2_5_llm.with_structured_output(
         HTMLClassificationResult
     )
 
@@ -102,6 +166,8 @@ def classify_roi_html_create_cand_spider(
             dom_repr.render_system.get_roi_html_render_with_pos_xpath(
                 roi_idx=idx
             )
+
+        # -> ROI Text render
         roi_text_render: str =\
             dom_repr.render_system.get_roi_text_render_with_pos_xpath(
                 roi_idx=idx
@@ -109,15 +175,10 @@ def classify_roi_html_create_cand_spider(
         print(roi_text_render)
 
         if roi_text_render.strip() != "":
-            html_classification_result = structured_roi_classifier_llm.invoke(
-                [
-                    HumanMessage(
-                        content=ROI_CLASSIFICATION_PROMPT.format(
-                            website_html=roi_html_render,
-                            planning=planning
-                        )
-                    )
-                ]
+            html_classification_result = call_structured_roi_classifier_llm(
+                structured_roi_classifier_llm=structured_roi_classifier_llm,
+                roi_html_render=roi_html_render,
+                planning=planning
             )
 
             print(f"--- HTML CLASSIFICATION RESULT -> IDX: {idx} ---")
