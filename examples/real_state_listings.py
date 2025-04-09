@@ -30,7 +30,6 @@ print("Browser use task:")
 print(browser_use_task)
 
 # We run spider creation process here.
-
 create_spider(
     browser_use_task=browser_use_task
 )
