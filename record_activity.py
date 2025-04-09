@@ -8,7 +8,6 @@ from pyobjtojson import obj_to_json
 from langchain_openai import ChatOpenAI
 from browser_use_recorder import Agent
 
-from prompts.listings import PRODUCT_LISTING_TASK_PROMPT
 
 import prettyprinter
 
@@ -27,7 +26,6 @@ parser.add_argument(
 parser.add_argument(
     "--task",
     type=str,
-    default=PRODUCT_LISTING_TASK_PROMPT.format(url="https://tiendainglesa.com.uy/"),
     help="Task prompt string to use for the agent."
 )
 args = parser.parse_args()
