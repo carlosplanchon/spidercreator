@@ -15,11 +15,15 @@ pyhtml2md
 validators
 tldextract
 betterhtmlchunking
-ptyprocess
+# ptyprocess removed as requested
 
-# Receive API data:
+# Concurrency with Trio:
+trio
+structlog
+
+# FastAPI with Hypercorn:
 fastapi
-uvicorn
+hypercorn[trio]
 
 # Miscelaneous:
 # pydantic
