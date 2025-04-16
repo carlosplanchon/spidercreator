@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 import json
 
-from shared import o1_llm
+from shared import o3_llm
 
 
 class Mermaid(BaseModel):
@@ -15,7 +15,7 @@ class Mermaid(BaseModel):
     mermaid_code: str = Field(description="Valid mermaid code.")
 
 
-mermaid_structured_llm = o1_llm.with_structured_output(Mermaid)
+mermaid_structured_llm = o3_llm.with_structured_output(Mermaid)
 
 
 MERMAID_WORK_MINDMAP_PROMPT: str = """

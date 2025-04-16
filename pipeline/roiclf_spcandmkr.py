@@ -5,7 +5,7 @@ from pydantic import Field
 
 from langchain_core.messages import HumanMessage
 
-from shared import o1_llm
+from shared import o3_llm
 
 from typing import Optional
 
@@ -90,7 +90,7 @@ def classify_roi_html_create_cand_spider(
         extracted_content_on_rec=extracted_content_on_rec
     )
 
-    structured_roi_classifier_llm = o1_llm.with_structured_output(
+    structured_roi_classifier_llm = o3_llm.with_structured_output(
         HTMLClassificationResult
     )
 

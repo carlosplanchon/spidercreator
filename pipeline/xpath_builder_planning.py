@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from shared import o1_llm
+from shared import o3_llm
 
 from langchain_core.messages import HumanMessage
 
@@ -29,7 +29,7 @@ def make_non_structured_planning(
     mermaid_code: str,
     scrapy_spider: str
         ) -> str:
-    xpath_builder_planning = o1_llm.invoke(
+    xpath_builder_planning = o3_llm.invoke(
         [
             HumanMessage(
                 content=XPATH_BUILDER_PLANNING_PROMPT.format(
@@ -66,7 +66,7 @@ class Planning(BaseModel):
     summary: str = Field(..., description="Summary")
 
 
-structured_xpath_builder_llm = o1_llm.with_structured_output(
+structured_xpath_builder_llm = o3_llm.with_structured_output(
     Planning
 )
 

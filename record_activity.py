@@ -35,10 +35,10 @@ API_PORT = args.port
 TASK_PROMPT = args.task
 
 # 3. Construct your LLM and agent
-gpt4o_model = ChatOpenAI(model="gpt-4o")
+gpt41_model = ChatOpenAI(model="gpt-4.1")
 agent = Agent(
     task=TASK_PROMPT,
-    llm=gpt4o_model,
+    llm=gpt41_model
 )
 
 

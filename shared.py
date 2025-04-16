@@ -12,7 +12,7 @@ gpt41_llm = init_chat_model(
     model_provider="openai"
 )
 
-o1_llm = init_chat_model(
-    model="o1",
+o3_llm = init_chat_model(
+    model="o3",
     model_provider="openai"
 )

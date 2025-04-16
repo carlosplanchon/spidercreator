@@ -4,7 +4,7 @@ from typing import Any
 
 from langchain_core.messages import HumanMessage
 
-from shared import o1_llm
+from shared import o3_llm
 
 
 DRAFT_SCRAPY_SPIDER_CREATION_PROMPT: str = """
@@ -32,7 +32,7 @@ def make_scrapy_spider_draft(
     recordings: list[dict[str, Any]],
     mermaid_code: str
         ) -> str:
-    scrapy_spider_draft = o1_llm.invoke(
+    scrapy_spider_draft = o3_llm.invoke(
         [
             HumanMessage(
                 content=DRAFT_SCRAPY_SPIDER_CREATION_PROMPT.format(
