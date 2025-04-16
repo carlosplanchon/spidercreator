@@ -22,6 +22,7 @@ Stop after you’ve collected enough job postings to demonstrate the data extrac
 # This is an uruguayan job posting board with job listings on its website.
 url: str = "https://uy.computrabajo.com/"
 
+url: str = "https://hiring.cafe/"
 
 browser_use_task: str = JOB_LISTING_TASK_PROMPT.format(url=url)
 
