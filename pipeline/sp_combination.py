@@ -6,7 +6,7 @@ from utils.utils import extract_first_python_code
 
 from pipeline.xpath_builder_planning import Planning
 
-from shared import gpt45_llm
+from shared import gpt41_llm
 
 from langchain_core.messages import HumanMessage
 
@@ -96,7 +96,7 @@ def get_spider_combination(
 
     print(SPIDER_COMBINATION_PROMPT)
 
-    spider_combination_response = gpt45_llm.invoke(
+    spider_combination_response = gpt41_llm.invoke(
         [
             HumanMessage(content=SPIDER_COMBINATION_PROMPT)
         ]
