@@ -14,7 +14,9 @@ app = FastAPI()
 @app.post("/post_agent_history_step")
 async def post_agent_history_step(request: Request):
     data = await request.json()
-    prettyprinter.cpprint(data)
+
+    print("-> Browser Use Recorder. Recording received!")
+    # prettyprinter.cpprint(data)
 
     # Retrieve the folder name from app.state
     recordings_folder_name = app.state.folder_name

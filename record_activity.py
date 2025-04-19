@@ -6,8 +6,7 @@ import requests
 from dotenv import load_dotenv
 from pyobjtojson import obj_to_json
 from langchain_openai import ChatOpenAI
-from browser_use_recorder import Agent
-
+from browser_use import Agent
 
 import prettyprinter
 
@@ -34,13 +33,6 @@ args = parser.parse_args()
 API_PORT = args.port
 TASK_PROMPT = args.task
 
-# 3. Construct your LLM and agent
-gpt41_model = ChatOpenAI(model="gpt-4.1")
-agent = Agent(
-    task=TASK_PROMPT,
-    llm=gpt41_model
-)
-
 
 def send_agent_history_step(data):
     """Send the agent history step data to the specified port."""
@@ -59,7 +51,7 @@ async def record_activity(agent_obj):
     model_actions_json_last_elem = None
     extracted_content_json_last_elem = None
 
-    print('--- BEFORE STEP FUNC ---')
+    print('--- ON_STEP_START ---')
     website_html: str = await agent_obj.browser_context.get_page_html()
     website_screenshot: str = await agent_obj.browser_context.take_screenshot()
 
@@ -132,10 +124,17 @@ async def record_activity(agent_obj):
 
 
 async def run_agent():
+    # 3. Construct your LLM and agent
+    gpt41_model = ChatOpenAI(model="gpt-4.1")
+    agent = Agent(
+        task=TASK_PROMPT,
+        llm=gpt41_model
+    )
+
     """Run the agent with a maximum of 30 steps, recording each step."""
     try:
         await agent.run(
-            before_step_func=record_activity,
+            on_step_start=record_activity,
             max_steps=30
         )
     except Exception as e:
