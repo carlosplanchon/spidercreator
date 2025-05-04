@@ -1,0 +1,16 @@
+pydantic
+attrs
+attrs-strict
+betterhtmlchunking
+fastapi
+pandas
+prettyprinter
+ptyprocess
+pyhtml2md
+pyobjtojson
+sounddevice
+tldextract
+uvicorn
+validators
+browser-use
+
