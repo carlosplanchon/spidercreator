@@ -29,7 +29,12 @@ We don't have benchmarks yet. However, in internal tests using GPT, initial figu
 ```bash
 git clone https://github.com/carlosplanchon/spidercreator.git
 cd spidercreator
-pip install .
+
+# If you are using uv just run:
+uv sync
+
+# If you run pyenv:
+pip install -r requirements.txt
 ```
 
 Install Playwright: 
