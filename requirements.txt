@@ -1,5 +1,5 @@
-# browser-use-recorder:
-browser-use-recorder
+# browser-use:
+browser-use
 langchain
 langchain_openai
 pandas

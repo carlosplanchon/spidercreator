@@ -178,3 +178,6 @@ recordings/
 
 # Ignore results folder:
 results/
+
+# Clipboard:
+clipboard/
