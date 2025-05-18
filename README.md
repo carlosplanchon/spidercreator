@@ -20,7 +20,7 @@ This tradeoff makes it ideal for users seeking affordable, recurring scraping ta
 ## Costs:
 We don't have benchmarks yet. However, in internal tests using GPT, initial figures show a cost of around $2.50 per page. If you need to create a spider that takes into account two types of pages (for example, product listings and product details), this would cost around $5.
 
-### DeepWiki Docs: [https://deepwiki.carlosplanchon.com/spidercreator/](https://deepwiki.carlosplanchon.com/spidercreator/)
+### DeepWiki Docs: [https://deepwiki.com/carlosplanchon/spidercreator](https://deepwiki.com/carlosplanchon/spidercreator)
 
 ## 🚀 Quick Start
 
