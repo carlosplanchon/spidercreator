@@ -151,12 +151,6 @@ if __name__ == "__main__":
 
 Find practical usage examples in the [examples folder](examples/).
 
-## Hosted version (Commercial)
-💡 <strong>Looking for a tested and reliable version? We host a specialized build focused on extracting price listing XPaths from homepages - with an 80% success rate.</strong>  
-👉 **[Try the custom-build hosted version ☁︎](https://services.carlosplanchon.com/spidercreator/)**
-
-![SpiderCreator Hosted Version](assets/spidercreator_hosted.png)
-
 ## ⚙️ How It Works
 
 ### Main Workflow
